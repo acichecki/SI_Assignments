@@ -18,11 +18,19 @@ namespace CreateClass
                 Gender = Person.Genders.Male,
                 Salary = 3000,
                 Profession = "JS Dev",
-                RoomNumber = new Employee.Room() {RoomNumber = 5}
+                RoomNumber = new Employee.Room(5)
             };
+
             Console.WriteLine(Krzysio.ToString());
             Console.Write(Krzyslav.ToString());
-            Console.ReadLine();
+
+            Employee Kovacs = new Employee() { Name = "Géza", BirthDate = DateTime.Now, Salary = 1000, Profession = "léhűtő" };
+            Kovacs.RoomNumber = new Employee.Room(111);
+            Employee Kovacs2 = (Employee)Kovacs.Clone();
+            Kovacs2.RoomNumber.RoomNumber = 112;
+            Console.WriteLine(Kovacs.ToString());
+            Console.WriteLine(Kovacs2.ToString());
+            Console.ReadKey();
         }
     }
 }
