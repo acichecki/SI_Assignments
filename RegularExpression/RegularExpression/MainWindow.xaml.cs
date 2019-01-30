@@ -21,11 +21,21 @@ namespace RegularExpression
             string email = emailBox.Text;
 
             if (!ValidName(name))
-            { MessageBox.Show(name + " is not a proper name.");}
-            if (!ValidPhone(phone))
-            { MessageBox.Show(phone + " is not a proper phone number."); }
-            if (!ValidEmail(email))
-            { MessageBox.Show(email + " is not a proper email address."); }
+            {
+                MessageBox.Show(name + " is not a proper name.");
+                if (!ValidPhone(phone))
+                {
+                    MessageBox.Show(phone + " is not a proper phone number.");
+                    if (!ValidEmail(email))
+                    {
+                        MessageBox.Show(email + " is not a proper email address.");
+                    }
+                }
+            }
+            else
+            {
+                phoneBox.Text = ReformatPhone(phone);
+            }
         }
 
         private bool ValidName(string name)
@@ -41,7 +51,10 @@ namespace RegularExpression
             string setOfDigits = "\\d{3}";
             string sign = "[*.]?";
             string pattern = setOfDigits + sign + setOfDigits + sign + setOfDigits;
-            return Regex.IsMatch(number, pattern);
+
+            string phonePattern = "_^\\(?(\\d{3})\\)?[\\s\\-]?(\\d{3})\\-?(\\d{4})$_";
+
+            return Regex.IsMatch(number, phonePattern);
         }
 
         private bool ValidEmail(string email)
@@ -51,6 +64,12 @@ namespace RegularExpression
             string emailPostFix = "[a-zA-Z0-9-.]+";
             string pattern = emailPrefix + "@" + emailDomain + "\\." + emailPostFix;
             return Regex.IsMatch(email, pattern);
+        }
+
+        private string ReformatPhone(string phone)
+        {
+            string phonePattern = "_^\\(?(\\d{3})\\)?[\\s\\-]?(\\d{3})\\-?(\\d{4})$_";
+            return string.Format("({0}) {1}-{2}");
         }
     }
 }
