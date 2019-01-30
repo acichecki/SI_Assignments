@@ -15,16 +15,8 @@ namespace FileWatcher
         [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
         private static void Run()
         {
-            string[] args = System.Environment.GetCommandLineArgs();
-
-            if (args.Length != 2)
-            {
-                Console.WriteLine("Usage: Watcher.exe (directory)");
-                return;
-            }
-
             FileSystemWatcher watcher = new FileSystemWatcher();
-            watcher.Path = args[1];
+            watcher.Path = @"C:\Users\adam\Desktop\dotNet";
             watcher.NotifyFilter = NotifyFilters.LastAccess | NotifyFilters.LastWrite | NotifyFilters.FileName |
                                    NotifyFilters.DirectoryName;
             watcher.Filter = "*.txt";
