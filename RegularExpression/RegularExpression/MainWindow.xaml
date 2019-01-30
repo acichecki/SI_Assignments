@@ -1,0 +1,19 @@
+﻿<Window x:Class="RegularExpression.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RegularExpression"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="246.872" Width="360.128">
+    <Grid>
+        <Label Content="Name" HorizontalAlignment="Left" Margin="22,45,0,0" VerticalAlignment="Top"/>
+        <Label Content="Phone" HorizontalAlignment="Left" Margin="22,88,0,0" VerticalAlignment="Top"/>
+        <Label Content="E-mail" HorizontalAlignment="Left" Margin="22,137,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Name="nameBox"  Height="26" Margin="90,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="229"/>
+        <TextBox HorizontalAlignment="Left" Name="phoneBox"  Height="26" Margin="90,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="229"/>
+        <TextBox HorizontalAlignment="Left" Name="emailBox" Height="26" Margin="90,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="229"/>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="230,180,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+
+    </Grid>
+</Window>
